@@ -8,6 +8,7 @@
     "lib/"
   ],
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test",
     "build": "npm test && tsc",
@@ -27,6 +28,7 @@
   },
   "author": "picode7",
   "license": "MIT",
+  "packageManager": "pnpm@8.6.9",
   "devDependencies": {
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
