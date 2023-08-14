@@ -23,38 +23,38 @@ function test({
 }) {
   describe(name, function () {
     it('Offset', function () {
-      const data = new BinaryReader(new Uint8Array(size))
+      const data = new BinaryReader(Buffer.alloc(size))
       reader(data)
       expect(data.offset).equal(size)
     })
 
     it('Min value', function () {
-      const data = new BinaryReader(new Uint8Array(min.bytes))
+      const data = new BinaryReader(Buffer.from(min.bytes))
       const value = reader(data)
       expect(value).equal(min.value)
     })
 
     it('Zero value', function () {
-      const data = new BinaryReader(new Uint8Array(zero.bytes))
+      const data = new BinaryReader(Buffer.from(zero.bytes))
       const value = reader(data)
       expect(value).equal(zero.value)
     })
 
     it('Max value', function () {
-      const data = new BinaryReader(new Uint8Array(max.bytes))
+      const data = new BinaryReader(Buffer.from(max.bytes))
       const value = reader(data)
       expect(value).equal(max.value)
     })
 
     it('Specific value', function () {
-      const data = new BinaryReader(new Uint8Array(specific.bytes))
+      const data = new BinaryReader(Buffer.from(specific.bytes))
       const value = reader(data)
       expect(value).equal(specific.value)
     })
 
     if (typeof nan !== 'undefined') {
       it('NaN', function () {
-        const data = new BinaryReader(new Uint8Array(nan.bytes))
+        const data = new BinaryReader(Buffer.from(nan.bytes))
         const value = reader(data)
         expect(nan.test(value)).equal(true)
       })
@@ -186,23 +186,23 @@ test({
 
 describe('readUint8Array', function () {
   it('Offset', function () {
-    const arr = new Uint8Array([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
+    const data = new BinaryReader(Buffer.from(arr))
     data.readUint8Array(arr.length)
     expect(data.offset).equal(arr.length)
   })
 
   it('Empty', function () {
-    const arr = new Uint8Array([])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([])
+    const data = new BinaryReader(Buffer.from(arr))
     const value = data.readUint8Array(0)
     expect(value.length).equal(0)
     expect(data.offset).equal(0)
   })
 
   it('Specific', function () {
-    const arr = new Uint8Array([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
+    const data = new BinaryReader(Buffer.from(arr))
     const value = data.readUint8Array(arr.length)
     expect(value).deep.equal(arr)
   })
@@ -210,23 +210,23 @@ describe('readUint8Array', function () {
 
 describe('readArrayAsString', function () {
   it('Offset', function () {
-    const arr = new Uint8Array([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
+    const data = new BinaryReader(Buffer.from(arr))
     data.readArrayAsString(arr.length)
     expect(data.offset).equal(arr.length)
   })
 
   it('Empty', function () {
-    const arr = new Uint8Array([])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([])
+    const data = new BinaryReader(Buffer.from(arr))
     const value = data.readArrayAsString(0)
     expect(value.length).equal(0)
     expect(data.offset).equal(0)
   })
 
   it('Specific', function () {
-    const arr = new Uint8Array([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
-    const data = new BinaryReader(new Uint8Array(arr))
+    const arr = Buffer.from([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100])
+    const data = new BinaryReader(Buffer.from(arr))
     const value = data.readArrayAsString(arr.length)
     expect(value).equal('Hello World')
   })

@@ -1,8 +1,8 @@
 export class BinaryReader {
-  binary: Uint8Array
+  binary: Buffer
   offset: number = 0
 
-  constructor(binary: Uint8Array) {
+  constructor(binary: Buffer) {
     this.binary = binary
   }
 
@@ -77,6 +77,6 @@ export class BinaryReader {
   }
 
   readArrayAsString(length: number) {
-    return String.fromCharCode.apply(null, this.binary.subarray(this.offset, (this.offset += length)) as any)
+    return this.binary.toString('utf8', this.offset, (this.offset += length))
   }
 }
