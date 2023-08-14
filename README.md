@@ -1,8 +1,8 @@
 # Binary Reader for JavaScript/TypeScript
 
-[![npm](https://img.shields.io/npm/v/@picode/binary-reader)](https://www.npmjs.com/package/@picode/binary-reader)
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/@picode/binary-reader)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/picode7/binary-reader/CI)](https://github.com/picode7/binary-reader/actions)
+[![npm](https://img.shields.io/npm/v/@glagan/binary-reader)](https://www.npmjs.com/package/@glagan/binary-reader)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/@glagan/binary-reader)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/glagan/binary-reader/CI)](https://github.com/glagan/binary-reader/actions)
 
 Tool for reading binary data sequentially in JavaScript / TypeScript
 
@@ -11,13 +11,13 @@ Requires [DataView.getBigInt64 support](https://developer.mozilla.org/en-US/docs
 ## Installation
 
 ```bash
-npm install bin-reader
+npm install @glagan/binary-reader
 ```
 
 ## Usage
 
 ```ts
-import { BinaryReader } from 'bin-reader'
+import { BinaryReader } from '@glagan/binary-reader'
 
 const data = new BinaryReader(uint8Array)
 
