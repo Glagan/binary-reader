@@ -1,5 +1,5 @@
 {
-  "name": "@picode/binary-reader",
+  "name": "@glagan/binary-reader",
   "version": "1.0.0",
   "description": "Tool for reading binary data sequentially in JavaScript / TypeScript.",
   "main": "lib/index.js",
@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/picode7/binary-reader.git"
+    "url": "git+https://github.com/Glagan/binary-reader.git"
   },
   "author": "picode7",
   "license": "MIT",
