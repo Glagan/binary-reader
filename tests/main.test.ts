@@ -1,4 +1,4 @@
-import { BinaryReader } from '../src/index'
+import { BinaryEndianness, BinaryReader } from '../src/index'
 
 import { expect } from 'chai'
 
@@ -34,8 +34,20 @@ function test({
       expect(value).equal(min.value)
     })
 
+    it('Min value (Big endian)', function () {
+      const data = new BinaryReader(Buffer.from(min.bytes.reverse()), BinaryEndianness.BIG)
+      const value = reader(data)
+      expect(value).equal(min.value)
+    })
+
     it('Zero value', function () {
       const data = new BinaryReader(Buffer.from(zero.bytes))
+      const value = reader(data)
+      expect(value).equal(zero.value)
+    })
+
+    it('Zero value (Big endian)', function () {
+      const data = new BinaryReader(Buffer.from(zero.bytes.reverse()), BinaryEndianness.BIG)
       const value = reader(data)
       expect(value).equal(zero.value)
     })
@@ -46,8 +58,20 @@ function test({
       expect(value).equal(max.value)
     })
 
+    it('Max value (Big endian)', function () {
+      const data = new BinaryReader(Buffer.from(max.bytes.reverse()), BinaryEndianness.BIG)
+      const value = reader(data)
+      expect(value).equal(max.value)
+    })
+
     it('Specific value', function () {
       const data = new BinaryReader(Buffer.from(specific.bytes))
+      const value = reader(data)
+      expect(value).equal(specific.value)
+    })
+
+    it('Specific value (Big endian)', function () {
+      const data = new BinaryReader(Buffer.from(specific.bytes.reverse()), BinaryEndianness.BIG)
       const value = reader(data)
       expect(value).equal(specific.value)
     })
@@ -58,12 +82,18 @@ function test({
         const value = reader(data)
         expect(nan.test(value)).equal(true)
       })
+
+      it('NaN (Big endian)', function () {
+        const data = new BinaryReader(Buffer.from(nan.bytes.reverse()), BinaryEndianness.BIG)
+        const value = reader(data)
+        expect(nan.test(value)).equal(true)
+      })
     }
   })
 }
 
 test({
-  name: 'readUnit8',
+  name: 'readUint8',
   reader: (r) => r.readUint8(),
   size: 1,
   min: { bytes: [0], value: 0 },
