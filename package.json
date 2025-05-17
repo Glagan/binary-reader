@@ -1,6 +1,6 @@
 {
   "name": "@glagan/binary-reader",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Tool for reading binary data sequentially in JavaScript / TypeScript.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -8,7 +8,6 @@
     "lib/"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" pnpm test",
     "build": "pnpm test && tsc",

@@ -13,7 +13,7 @@ function test({
   nan,
 }: {
   name: string
-  reader: (r: BinaryReader) => any
+  reader: (r: BinaryReader<Buffer>) => any
   size: number
   min: { bytes: number[]; value: any }
   zero: { bytes: number[]; value: any }

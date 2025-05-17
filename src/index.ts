@@ -1,8 +1,8 @@
-export class BinaryReader {
-  binary: Buffer
+export class BinaryReader<T extends Buffer | Uint8Array = Buffer> {
+  binary: T
   offset: number = 0
 
-  constructor(binary: Buffer) {
+  constructor(binary: T) {
     this.binary = binary
   }
 

@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@glagan/binary-reader)](https://www.npmjs.com/package/@glagan/binary-reader)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@glagan/binary-reader)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/glagan/binary-reader/CI)](https://github.com/glagan/binary-reader/actions)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/glagan/binary-reader/.github/workflows/main.yml?branch=main)](https://github.com/glagan/binary-reader/actions)
 
 Tool for reading binary data sequentially in JavaScript / TypeScript
 
